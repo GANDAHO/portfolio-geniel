@@ -251,7 +251,7 @@
                   {% endif %}
                 {% endwith %}
 
-                <form action="{{ url_for('contact') }}" method="POST" class="bg-white p-8 rounded-2xl shadow-xl text-left">
+                <form id="contact-form" class="bg-white p-8 rounded-2xl shadow-xl text-left">
                     <h4 class="font-bold text-xl mb-6 text-gray-900 tracking-tight">Envoyez-moi un message</h4>
                     <div class="mb-4">
                         <label class="block text-gray-600 text-sm mb-2 font-medium">Nom complet</label>
@@ -265,8 +265,8 @@
                         <label class="block text-gray-600 text-sm mb-2 font-medium">Votre message</label>
                         <textarea name="message" rows="4" class="w-full border border-gray-300 bg-gray-50 rounded-lg p-3 text-gray-900 focus:border-corp-accent focus:ring-1 focus:ring-corp-accent outline-none transition" required></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-corp-accent hover:bg-corp-blue text-white font-bold py-3.5 rounded-lg transition duration-300 shadow-md">
-                        Envoyer <i class="fa-solid fa-paper-plane ml-2"></i>
+                    <button type="submit" id="submit-btn" class="w-full bg-corp-accent hover:bg-corp-blue text-white font-bold py-3.5 rounded-lg transition duration-300 shadow-md flex justify-center items-center">
+                        <span>Envoyer</span> <i class="fa-solid fa-paper-plane ml-2"></i>
                     </button>
                 </form>
             </div>
@@ -305,6 +305,59 @@
             });
         });
 
+    </script>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <script type="text/javascript">
+        (function() {
+            // ⚠️ REMPLACE TA_PUBLIC_KEY PAR TA VRAIE CLÉ (disponible dans l'onglet Account d'EmailJS)
+            emailjs.init("TA_PUBLIC_KEY");
+        })();
+
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche le rechargement brutal de la page
+            
+            const btn = document.getElementById('submit-btn');
+            const originalContent = btn.innerHTML;
+            
+            // Animation de chargement
+            btn.innerHTML = 'Envoi en cours... <i class="fa-solid fa-spinner fa-spin ml-2"></i>';
+            btn.disabled = true;
+            btn.classList.add('opacity-75', 'cursor-not-allowed');
+
+            // Envoi via EmailJS avec tes IDs
+            emailjs.sendForm('service_ltrwzat', 'template_9i1nux4', this)
+                .then(function() {
+                    // Succès
+                    btn.innerHTML = 'Message envoyé avec succès ! <i class="fa-solid fa-check-circle ml-2"></i>';
+                    btn.classList.replace('bg-corp-accent', 'bg-green-600');
+                    btn.classList.replace('hover:bg-corp-blue', 'hover:bg-green-700');
+                    document.getElementById('contact-form').reset(); // Vide le formulaire
+                    
+                    // Remet le bouton normal après 4 secondes
+                    setTimeout(() => {
+                        btn.innerHTML = originalContent;
+                        btn.disabled = false;
+                        btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                        btn.classList.replace('bg-green-600', 'bg-corp-accent');
+                        btn.classList.replace('hover:bg-green-700', 'hover:bg-corp-blue');
+                    }, 4000);
+
+                }, function(error) {
+                    // Échec
+                    console.log('ERREUR...', error);
+                    btn.innerHTML = 'Erreur lors de l\'envoi <i class="fa-solid fa-circle-xmark ml-2"></i>';
+                    btn.classList.replace('bg-corp-accent', 'bg-red-600');
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalContent;
+                        btn.disabled = false;
+                        btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                        btn.classList.replace('bg-red-600', 'bg-corp-accent');
+                    }, 4000);
+                });
+        });
     </script>
 </body>
 </html>
