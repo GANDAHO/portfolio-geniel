@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Géniel Gandaho | Architecte SI & Data Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                'corp-blue': '#1e3a8a',
+                'corp-accent': '#2563eb',
+                'corp-light': '#f8fafc'
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-corp-light text-gray-800 font-sans antialiased overflow-x-hidden">
+
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 text-gray-800 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="font-extrabold text-2xl tracking-tighter text-corp-blue">G. GANDAHO</a>
+            
+            <div class="hidden md:flex space-x-6 font-medium text-sm uppercase tracking-wider items-center">
+                <a href="#about" class="hover:text-corp-accent transition">À propos</a>
+                <a href="#experience" class="hover:text-corp-accent transition">Expérience</a>
+                <a href="#projets" class="hover:text-corp-accent transition">Projets</a>
+                <a href="#skills" class="hover:text-corp-accent transition">Compétences</a>
+                <a href="#contact" class="bg-corp-accent text-white hover:bg-corp-blue transition px-4 py-1.5 rounded-full text-xs">Me Contacter</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-corp-blue text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg flex flex-col px-6 py-4 space-y-4 font-medium text-sm uppercase tracking-wider">
+            <a href="#about" class="hover:text-corp-accent">À propos</a>
+            <a href="#experience" class="hover:text-corp-accent">Expérience</a>
+            <a href="#projets" class="hover:text-corp-accent">Projets</a>
+            <a href="#skills" class="hover:text-corp-accent">Compétences</a>
+            <a href="#contact" class="text-corp-accent font-bold">Me Contacter</a>
+        </div>
+    </nav>
+
+    <section id="about" class="pt-32 pb-24 px-4 bg-gradient-to-br from-white to-blue-50">
+        <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center">
+            <div class="md:w-3/5 mt-10 md:mt-0" data-aos="fade-right">
+                <p class="text-corp-accent font-semibold tracking-wide uppercase mb-2 flex items-center">
+                    <span class="w-10 h-0.5 bg-corp-accent mr-3"></span> Data Analyst & Spécialiste M&E
+                </p>
+                <h1 class="text-5xl font-extrabold leading-tight mb-4 tracking-tighter text-gray-900">
+                    L'expertise du <span class="text-corp-accent">Suivi-Évaluation</span>.<br> 
+                    L'ingénierie des <span class="text-corp-accent">Systèmes d'Information</span>.
+                </h1>
+                <p class="text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl">
+                    Diplômé en Planification et Suivi-Évaluation. J'allie la rigueur analytique métier à l'architecture de bases de données. Je modélise, automatise et déploie des solutions technologiques complexes (ERP, Moteurs d'ingestion Data) pour optimiser la gouvernance institutionnelle et le pilotage stratégique.
+                </p>
+                <div class="flex flex-wrap gap-4 items-center">
+                        <a href="{{ url_for('afficher_cv') }}" class="bg-corp-accent text-white px-8 py-3.5 rounded-lg font-bold hover:bg-corp-blue transition shadow-md hover-lift flex items-center">
+                            <i class="fa-solid fa-file-contract mr-2.5"></i> Voir mon CV détaillé
+                        </a>
+                    <div class="flex space-x-3 items-center">
+                        <a href="https://wa.me/22952454379" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-green-50 hover:text-green-600 transition hover-lift text-gray-500 shadow-sm">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/gnielgandaho" target="_blank" class="w-12 h-12 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-blue-50 hover:text-blue-600 transition hover-lift text-gray-500 shadow-sm">
+                            <i class="fa-brands fa-linkedin-in text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-2/5 flex justify-center relative" data-aos="fade-left">
+                <div class="w-72 h-72 bg-white rounded-full border-8 border-blue-50 shadow-xl overflow-hidden flex items-center justify-center hover-lift">
+                    <img src="{{ url_for('static', filename='img/geniel_profil.jpeg') }}" alt="Géniel Gandaho" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-white border-y border-gray-100">
+        <div class="max-w-5xl mx-auto px-4">
+            <h2 class="text-4xl font-extrabold tracking-tighter text-center mb-16 text-gray-900" data-aos="fade-up">Parcours Professionnel</h2>
+            
+            <div class="space-y-12">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition" data-aos="fade-up">
+                    <div class="md:col-span-1 text-center md:text-left">
+                        <div class="w-20 h-20 bg-blue-50 rounded-2xl border border-blue-100 mx-auto md:mx-0 flex items-center justify-center mb-4 text-corp-accent">
+                            <i class="fa-solid fa-briefcase text-3xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-corp-accent bg-blue-50 px-3 py-1 rounded-full border border-blue-100">Sep 2022 - Présent</span>
+                    </div>
+                    <div class="md:col-span-3">
+                        <h3 class="text-2xl font-bold tracking-tight text-gray-900">Data Strategy Consultant & Web System Developer</h3>
+                        <h4 class="text-lg font-semibold text-gray-500 mb-5">MS-GA Consulting | Cotonou</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm leading-relaxed">
+                            <li><strong>Ingénierie de la Donnée :</strong> Création et déploiement d'une architecture web (Python/Flask) capable d'ingérer et d'analyser des milliards de FCFA liés aux Plans de Développement Communaux (PDC).</li>
+                            <li><strong>Évaluation & Qualité :</strong> Conduite d'évaluations SxS strictes sur de vastes bases de données relationnelles pour identifier les incohérences et garantir la fiabilité de l'information.</li>
+                            <li><strong>Gouvernance :</strong> Rédaction de justifications stratégiques structurées pour orienter les décisions des partenaires institutionnels et locaux.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 bg-white p-8 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="md:col-span-1 text-center md:text-left">
+                        <div class="w-20 h-20 bg-green-50 rounded-2xl border border-green-100 mx-auto md:mx-0 flex items-center justify-center mb-4 text-green-600">
+                            <i class="fa-solid fa-building-columns text-3xl"></i>
+                        </div>
+                        <span class="text-xs font-bold text-green-600 bg-green-50 px-3 py-1 rounded-full border border-green-100">Sep 2021 - Présent</span>
+                    </div>
+                    <div class="md:col-span-3">
+                        <h3 class="text-2xl font-bold tracking-tight text-gray-900">Deputy Director & Information Systems Manager</h3>
+                        <h4 class="text-lg font-semibold text-gray-500 mb-5">EL-SHADDAI Private School | Cotonou</h4>
+                        <ul class="list-disc list-inside text-gray-600 space-y-3 text-sm leading-relaxed">
+                            <li><strong>Co-Direction & Stratégie :</strong> Pilotage opérationnel de l'établissement, supervision des flux financiers et optimisation des processus administratifs quotidiens.</li>
+                            <li><strong>Transformation Numérique :</strong> Architecture, développement et déploiement d'un ERP institutionnel sur-mesure pour centraliser la gestion scolaire, comptable et académique.</li>
+                            <li><strong>Business Intelligence :</strong> Modélisation de tableaux de bord décisionnels en temps réel (taux de recouvrement, performances académiques) pour sécuriser la trésorerie et orienter la direction générale.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="projets" class="py-24 bg-corp-light border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-extrabold tracking-tighter text-center mb-4 text-gray-900" data-aos="fade-up">Architectures Déployées</h2>
+            <p class="text-center text-gray-500 mb-16 max-w-2xl mx-auto text-lg" data-aos="fade-up" data-aos-delay="50">Découvrez les systèmes sur-mesure que j'ai conçus et développés.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {% for projet_id, projet in projets.items() %}
+                <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-500 group border border-gray-200 flex flex-col hover-lift" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                    
+                    <div class="h-48 bg-gray-100 flex items-center justify-center text-gray-300 text-5xl relative border-b border-gray-100">
+                        {% if projet['drive_id'] and projet['image_cover'] %}
+                            <img src="{{ url_for('static', filename='img/' + projet['image_cover']) }}" alt="{{ projet['titre'] }}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                            <div class="absolute inset-0 bg-corp-blue/10 flex items-center justify-center group-hover:bg-corp-blue/30 transition">
+                                <i class="fa-solid fa-play text-4xl text-white drop-shadow-lg group-hover:scale-110 transition"></i>
+                            </div>
+                        {% else %}
+                            <i class="fa-solid fa-laptop-code"></i>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="p-7 flex-grow flex flex-col">
+                        <span class="text-xs font-bold text-{{ projet['color'] }}-600 bg-{{ projet['color'] }}-50 border border-{{ projet['color'] }}-100 px-3 py-1 rounded-full uppercase tracking-wider self-start">{{ projet['cate'] }}</span>
+                        <h3 class="text-2xl font-bold mt-4 mb-3 tracking-tight text-gray-900">{{ projet['titre'] }}</h3>
+                        <p class="text-gray-600 text-sm mb-6 leading-relaxed flex-grow">{{ projet['resume'] }}</p>
+                        
+                        <a href="{{ url_for('projet_detail', projet_id=projet_id) }}" class="inline-flex items-center text-corp-accent font-semibold hover:text-corp-blue transition group">
+                            Voir le détail 
+                            <i class="fa-solid fa-arrow-right ml-2 group-hover:translate-x-1.5 transition"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-extrabold tracking-tighter text-center mb-16 text-gray-900" data-aos="fade-up">Expertise Métier & Technique</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition" data-aos="fade-up">
+                    <div class="text-corp-accent text-3xl mb-5"><i class="fa-solid fa-clipboard-check"></i></div>
+                    <h4 class="font-extrabold text-gray-900 mb-4 border-b border-gray-100 pb-3 tracking-tight">Planification & Suivi-Évaluation</h4>
+                    <p class="text-sm text-gray-500 mb-4">Conception stratégique et mesure d'impact.</p>
+                    <div class="flex flex-wrap gap-2.5">
+                        {% for skill in ['Cadres Logiques', 'Indicateurs de Performance (KPI)', 'Évaluations SxS', 'Enquêtes (CSPro / KoboToolbox)', 'Gouvernance Locale'] %}
+                        <span class="bg-blue-50 text-corp-blue px-3 py-1 rounded-md text-xs font-semibold border border-blue-100">{{ skill }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-purple-600 text-3xl mb-5"><i class="fa-solid fa-database"></i></div>
+                    <h4 class="font-extrabold text-gray-900 mb-4 border-b border-gray-100 pb-3 tracking-tight">Analyse & Ingénierie Data</h4>
+                    <p class="text-sm text-gray-500 mb-4">Traitement et structuration des données massives.</p>
+                    <div class="flex flex-wrap gap-2.5">
+                        {% for skill in ['Python (Pandas)', 'SQL (PostgreSQL)', 'ETL & Nettoyage', 'Modélisation Relationnelle', 'Excel Avancé'] %}
+                        <span class="bg-purple-50 text-purple-700 px-3 py-1 rounded-md text-xs font-semibold border border-purple-100">{{ skill }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-green-600 text-3xl mb-5"><i class="fa-solid fa-network-wired"></i></div>
+                    <h4 class="font-extrabold text-gray-900 mb-4 border-b border-gray-100 pb-3 tracking-tight">Architecture de Systèmes</h4>
+                    <p class="text-sm text-gray-500 mb-4">Automatisation et restitution décisionnelle.</p>
+                    <div class="flex flex-wrap gap-2.5">
+                        {% for skill in ['Tableaux de Bord (Dashboards)', 'Développement ERP (Flask)', 'Sécurité des données (RBAC)', 'Génération PDF Dynamique', 'Web Apps'] %}
+                        <span class="bg-green-50 text-green-700 px-3 py-1 rounded-md text-xs font-semibold border border-green-100">{{ skill }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-corp-blue text-white">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            
+            <div data-aos="fade-right">
+                <h2 class="text-4xl font-extrabold tracking-tighter mb-6 text-white">Besoin de fiabiliser votre Suivi-Évaluation ?</h2>
+                <p class="mb-10 text-blue-100 text-lg leading-relaxed">Je suis à votre disposition pour des missions d'expertise en Planification et Suivi-Évaluation (M&E), l'audit de vos données, ou la conception de systèmes de pilotage sur-mesure pour votre institution.</p>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <a href="https://wa.me/22952454379" target="_blank" class="flex items-center bg-white/10 p-5 rounded-xl border border-white/20 hover:bg-white/20 transition group hover-lift">
+                        <i class="fa-brands fa-whatsapp text-3xl text-green-400 mr-4"></i>
+                        <div>
+                            <span class="block font-bold text-white">WhatsApp</span>
+                            <span class="text-sm text-blue-200">Contact instantané</span>
+                        </div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/gnielgandaho" target="_blank" class="flex items-center bg-white/10 p-5 rounded-xl border border-white/20 hover:bg-white/20 transition group hover-lift">
+                        <i class="fa-brands fa-linkedin text-3xl text-blue-300 mr-4"></i>
+                        <div>
+                            <span class="block font-bold text-white">LinkedIn</span>
+                            <span class="text-sm text-blue-200">Profil professionnel</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div data-aos="fade-left">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                  {% if messages %}
+                    {% for category, message in messages %}
+                      <div class="mb-6 p-4 rounded text-sm {% if category == 'success' %}bg-green-500 text-white{% else %}bg-red-500 text-white{% endif %}">
+                        {{ message }}
+                      </div>
+                    {% endfor %}
+                  {% endif %}
+                {% endwith %}
+
+                <form action="{{ url_for('contact') }}" method="POST" class="bg-white p-8 rounded-2xl shadow-xl text-left">
+                    <h4 class="font-bold text-xl mb-6 text-gray-900 tracking-tight">Envoyez-moi un message</h4>
+                    <div class="mb-4">
+                        <label class="block text-gray-600 text-sm mb-2 font-medium">Nom complet</label>
+                        <input type="text" name="nom" class="w-full border border-gray-300 bg-gray-50 rounded-lg p-3 text-gray-900 focus:border-corp-accent focus:ring-1 focus:ring-corp-accent outline-none transition" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-600 text-sm mb-2 font-medium">Email professionnel</label>
+                        <input type="email" name="email" class="w-full border border-gray-300 bg-gray-50 rounded-lg p-3 text-gray-900 focus:border-corp-accent focus:ring-1 focus:ring-corp-accent outline-none transition" required>
+                    </div>
+                    <div class="mb-6">
+                        <label class="block text-gray-600 text-sm mb-2 font-medium">Votre message</label>
+                        <textarea name="message" rows="4" class="w-full border border-gray-300 bg-gray-50 rounded-lg p-3 text-gray-900 focus:border-corp-accent focus:ring-1 focus:ring-corp-accent outline-none transition" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-corp-accent hover:bg-corp-blue text-white font-bold py-3.5 rounded-lg transition duration-300 shadow-md">
+                        Envoyer <i class="fa-solid fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm">
+        <p>&copy; 2026 Géniel Immaculé M. GANDAHO. Information Systems Specialist | BENIN.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true, offset: 100 });
+
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            // Change l'icône (Hamburger <-> Croix)
+            const icon = btn.querySelector('i');
+            if(menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        });
+
+        // Ferme le menu quand on clique sur un lien
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                btn.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+    </script>
+</body>
+</html>
