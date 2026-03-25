@@ -1,9 +1,15 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, send_from_directory, abort
 import os
+from dotenv import load_dotenv
+
+# Charge les variables cachées du fichier .env (en local)
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.environ.get('SECRET_KEY', 'architecture_reactivity_spice_2026_geniel')
+# On récupère la clé. S'il ne la trouve pas (ex: oubli), on met une clé bidon 'dev_key' qui ne craint rien en public.
+app.secret_key = os.environ.get('SECRET_KEY', 'cle_de_developpement@123')
 
+# ... la suite de ton code avec projets_db ...
 # --- "BASE DE DONNÉES" DES PROJETS (DICTIONNAIRE) ---
 # C'est ici que tu stockeras les descriptions longues et les ID vidéo
 projets_db = {

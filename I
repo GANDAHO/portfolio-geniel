@@ -4,10 +4,10 @@ mon_portfolio/
 ├── requirements.txt
 ├── static/
 │   └── img/
-│       ├── pdc_builder.jpg    (À ajouter plus tard)
-│       ├── msga_cms.jpg       (À ajouter plus tard)
-│       ├── el_shaddai.jpg     (À ajouter plus tard)
-│       └── geniel_profil.jpg  (Ta photo pro)
+│       ├── pdc_builder.jpg    
+│       ├── msga_cms.jpg       
+│       ├── el_shaddai.jpg     
+│       └── geniel_profil.jpg  
 │
 └── templates/
     └── index.html
