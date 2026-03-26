@@ -15,79 +15,81 @@ app.secret_key = os.environ.get('SECRET_KEY', 'cle_de_developpement@123')
 projets_db = {
     'pdc-builder': {
         'titre': 'MS-GA PDC Builder',
-        'cate': 'Data Engineering / GovTech / M&E',
-        'resume': 'Moteur ETL automatisé et plateforme d\'analyse stratégique pour l\'évaluation des Plans de Développement Communaux (PDC).',
+        'cate': 'Data & Suivi-Évaluation',
+        'resume': "Plateforme de digitalisation et d'analyse des Plans de Développement Communaux (PDC).",
         'description_complete': """
             <h3>Le Défi Institutionnel</h3>
-            <p>L'analyse et la consolidation des Plans de Développement Communaux (PDC) pour les partenaires institutionnels impliquaient le traitement manuel de matrices Excel tentaculaires. Ce processus chronophage rendait difficile l'évaluation de la cohérence entre les budgets prévisionnels (se chiffrant en milliards de FCFA) et le cadre logique (Indicateurs, SWOT, Objectifs stratégiques).</p>
+            <p>L'analyse des Plans de Développement Communaux (PDC) reposait principalement sur des fichiers Excel volumineux et difficiles à exploiter. Ce mode de gestion rendait complexe le suivi des budgets, des indicateurs et la cohérence globale des données pour les décideurs.</p>
             
             <h3>La Solution Architecturale</h3>
-            <p>J'ai conçu une architecture <strong>GovTech</strong> complète en Python/Flask, couplée à une base de données PostgreSQL hautement relationnelle. Le cœur du système est un pipeline <strong>ETL (Extract, Transform, Load)</strong> propulsé par Pandas, capable d'ingérer, de nettoyer et de structurer automatiquement les données des fichiers Excel institutionnels.</p>
+            <p>J'ai conçu une application web en Python (Flask) couplée à une base de données relationnelle (PostgreSQL) permettant de centraliser, structurer et exploiter les données des PDC de manière sécurisée.</p>
             
-            <h3>Impact & Ingénierie Technique</h3>
+            <h3>Résultats & Apports Techniques</h3>
             <ul class='list-disc list-inside space-y-2 ml-4'>
-                <li><strong>Ingénierie Data (ETL) :</strong> Automatisation de l'ingestion de données massives (Programmes, Projets, Budgets sur 5 ans) via des scripts Python/Pandas, garantissant zéro perte de données et l'intégrité référentielle.</li>
-                <li><strong>Digitalisation du Suivi-Évaluation (M&E) :</strong> Modélisation informatique stricte des Cadres Logiques : suivi des Axes Stratégiques, des Matrices SWOT, de l'Arbre à Problèmes, et des Indicateurs de Performance (valeurs de référence et cibles).</li>
-                <li><strong>Business Intelligence & Cartographie :</strong> Développement de tableaux de bord interactifs (Chart.js) pour le suivi des KPI financiers, couplés à un <strong>Système d'Information Géographique (SIG)</strong> via Folium/Leaflet pour la cartographie des investissements communaux.</li>
-                <li><strong>Génération de Livrables :</strong> Automatisation de l'édition des rapports officiels en un clic, avec génération dynamique de documents Word (<code>python-docx</code>) et PDF (<code>WeasyPrint</code>) directement depuis la base de données.</li>
-                <li><strong>Sécurité & RBAC :</strong> Sécurisation des accès par rôles (Administrateur, Directeur, Expert, Agent) avec des vues et permissions strictement isolées sur le back-office.</li>
+                <li><strong>Automatisation des données :</strong> Import, nettoyage et structuration des données (projets, budgets, indicateurs) directement à partir de fichiers Excel.</li>
+                <li><strong>Structuration du M&E :</strong> Intégration stricte des cadres logiques (axes stratégiques, indicateurs, matrices SWOT).</li>
+                <li><strong>Tableaux de bord :</strong> Visualisation claire des données financières et des indicateurs de performance clés.</li>
+                <li><strong>Cartographie :</strong> Visualisation des investissements par localité.</li>
+                <li><strong>Génération de rapports :</strong> Export automatique des synthèses en formats Word et PDF.</li>
+                <li><strong>Gestion des accès :</strong> Système de rôles (RBAC) pour sécuriser l'accès aux données selon les profils utilisateurs.</li>
             </ul>
         """,
-        'drive_id': '1MLz5Udo1Q79NX9MzxQwhf8534T_72lkG', # Mets ton ID vidéo Drive ici
-        'image_cover': 'pdc_cover.jpg', # Capture d'écran à mettre dans static/img/
-        'tags': ['Python (Pandas)', 'ETL', 'PostgreSQL', 'M&E Frameworks', 'Cartographie (SIG)'],
+        'drive_id': '1MLz5Udo1Q79NX9MzxQwhf8534T_72lkG', 
+        'image_cover': 'pdc_cover.jpg', 
+        'tags': ['Python (Flask)', 'PostgreSQL', 'M&E Frameworks', 'Cartographie', 'Automatisation Excel'],
         'color': 'blue'
     },
+    
     'elshaddai-erp': {
         'titre': 'EL-SHADDAÏ SIS & ERP',
-        'cate': 'ERP / EdTech / M&E',
-        'resume': 'Système d\'Information Scolaire (SIS) complet : gouvernance financière, suivi pédagogique et pilotage stratégique (KPI).',
-        'description_complete': """
-            <h3>Le Défi Institutionnel</h3>
-            <p>En tant que Directeur Adjoint, j'ai constaté que la gestion fragmentée (fichiers Excel multiples) générait des pertes de données, des erreurs de facturation et un manque de visibilité globale. Le besoin était de centraliser la gouvernance administrative, financière et académique dans un outil unique, fiable et capable de générer des indicateurs d'aide à la décision en temps réel.</p>
-            
-            <h3>La Solution Architecturale</h3>
-            <p>J'ai architecturé et développé un ERP institutionnel sur-mesure avec <strong>Python, Flask et SQLAlchemy</strong>. Ce système repose sur un modèle de base de données relationnelle complexe (plus de 15 entités) et intègre une gestion stricte des droits d'accès (RBAC) divisée en 6 portails autonomes (Direction, Comptabilité, Secrétariat, Enseignants, Parents, Admin).</p>
-            
-            <h3>Impact & Ingénierie Technique</h3>
-            <ul class='list-disc list-inside space-y-2 ml-4'>
-                <li><strong>Pilotage M&E (Suivi-Évaluation) :</strong> Développement d'un tableau de bord stratégique calculant les KPI institutionnels (taux de recouvrement, parité, zones de risque académique) et intégrant un algorithme prédictif de projection financière sur 5 ans.</li>
-                <li><strong>Gouvernance Financière :</strong> Suivi automatisé des flux de trésorerie, gestion des arriérés, et système de notification avec envoi instantané de <strong>reçus numériques cryptés via WhatsApp</strong>.</li>
-                <li><strong>Ingénierie Pédagogique :</strong> Algorithme de calcul automatique des moyennes, classements dynamiques (rangs) et génération en un clic des bulletins mensuels et certificats de scolarité.</li>
-                <li><strong>Business Intelligence :</strong> Création d'un connecteur d'API JSON RESTful (<code>/api/powerbi</code>) dédié à l'ingestion des données relationnelles en direct par <strong>Microsoft Power BI</strong>.</li>
-            </ul>
-        """,
-        'drive_id': '1Y5uw2xybOzz5mqGA9JI0FDz2RhF2WLiT', # Mets ton ID vidéo Drive ici
-        'image_cover': 'elshaddai_cover.jpg', # Capture d'écran à mettre dans static/img/
-        'tags': ['Flask', 'RBAC', 'M&E Dashboards', 'API Power BI', 'SQLAlchemy'],
-        'color': 'green'
-    },
-    'msga-learning': {
-        'titre': 'MS-GA Learning & CRM',
-        'cate': 'SaaS / LMS / FinTech',
-        'resume': 'Plateforme d\'e-learning complète intégrant tunnel de vente, paiements automatisés (FedaPay) et génération dynamique de certificats.',
+        'cate': 'Gestion Scolaire & M&E',
+        'resume': "Système centralisé pour la gestion administrative, financière et le suivi pédagogique de l'établissement.",
         'description_complete': """
             <h3>Le Défi</h3>
-            <p>Le cabinet MS-GA Consulting souhaitait digitaliser la vente de ses séminaires et services d'expertise. Il fallait non seulement un site vitrine, mais surtout un <strong>Espace Client sécurisé</strong> capable de gérer de bout-en-bout le parcours d'un apprenant : de la capture du prospect jusqu'à l'examen final et la certification.</p>
+            <p>La gestion fragmentée sur de multiples fichiers Excel générait des erreurs de facturation, des pertes de temps administratif et un manque de visibilité globale sur la santé financière et académique de l'école. Le besoin était de centraliser l'information pour faciliter la prise de décision.</p>
             
             <h3>La Solution Architecturale</h3>
-            <p>Conception et développement d'une architecture Full-Stack en <strong>Python/Flask</strong>. Le système est scindé en trois environnements étanches : un site public optimisé pour la conversion (EmailJS), un Espace Apprenant asynchrone (JS/Fetch API), et un Back-Office (Flask-Admin) agissant comme un véritable CRM pour la direction.</p>
+            <p>J'ai développé une application web sur-mesure (Python/Flask) adossée à une base de données structurée couvrant les principaux processus de l'école. Le système propose des portails dédiés selon les rôles (Direction, Comptabilité, Secrétariat, Enseignants).</p>
             
-            <h3>Impact & Ingénierie Technique</h3>
+            <h3>Résultats & Apports Techniques</h3>
             <ul class='list-disc list-inside space-y-2 ml-4'>
-                <li><strong>Tunnel de Vente & CRM :</strong> Suivi automatisé des prospects (Leads) et gestion fine des statuts de commande (En attente, Autorisé, Payé).</li>
-                <li><strong>Intégration FinTech :</strong> Connexion à l'API <strong>FedaPay</strong> via JavaScript pour valider les paiements en temps réel et débloquer automatiquement les modules de cours.</li>
-                <li><strong>Moteur d'Examen (LMS) :</strong> Conception d'un système de Quiz asynchrone avec calcul algorithmique des scores de validation (Seuil de réussite fixé à 80/100).</li>
-                <li><strong>Génération PDF "Pixel Perfect" :</strong> Utilisation avancée de la librairie <strong>ReportLab (Canvas)</strong> pour dessiner mathématiquement, à la volée, des attestations de réussite infalsifiables intégrant les données du client.</li>
+                <li><strong>Gouvernance Financière :</strong> Suivi centralisé de la trésorerie, gestion des arriérés, et système de reçus numériques envoyés via WhatsApp.</li>
+                <li><strong>Suivi Pédagogique :</strong> Calcul automatique des moyennes, classements et génération des bulletins scolaires.</li>
+                <li><strong>Tableaux de bord M&E :</strong> Outil de projection financière et suivi des indicateurs de recouvrement en temps réel.</li>
+                <li><strong>Connectivité Data :</strong> Interfaçage sécurisé avec Microsoft Power BI pour l'analyse décisionnelle de la direction.</li>
             </ul>
         """,
-        'drive_id': '1DJOm8d1pvXFDUNZU14B6mpeWx_N40Jip', # Mets ton ID vidéo Drive ici
-        'image_cover': 'msga_cms.jpg', 
-        'tags': ['Flask', 'ReportLab (PDF)', 'FedaPay API', 'LMS', 'JavaScript (Fetch)'],
+        'drive_id': '1Y5uw2xybOzz5mqGA9JI0FDz2RhF2WLiT',
+        'image_cover': 'elshaddai_cover.jpg', 
+        'tags': ['Flask', 'Microsoft Power BI', 'Gestion Financière', 'Automatisation', 'Base de données'],
+        'color': 'green'
+    },
+    
+    'msga-learning': {
+        'titre': 'MS-GA Learning & CRM',
+        'cate': 'E-learning & Digitalisation',
+        'resume': "Plateforme de formation en ligne avec gestion des inscriptions, paiements automatisés et certifications.",
+        'description_complete': """
+            <h3>Le Défi</h3>
+            <p>Le cabinet souhaitait digitaliser la vente de ses séminaires et automatiser le parcours de l'apprenant : de la prospection initiale jusqu'à la validation des acquis et la délivrance de l'attestation, le tout sans intervention manuelle lourde.</p>
+            
+            <h3>La Solution Architecturale</h3>
+            <p>Conception d'une plateforme web complète comprenant un site vitrine pour la conversion, un Espace Apprenant sécurisé, et un tableau de bord administratif (CRM) pour le suivi des cohortes par la direction.</p>
+            
+            <h3>Résultats & Apports Techniques</h3>
+            <ul class='list-disc list-inside space-y-2 ml-4'>
+                <li><strong>Gestion des apprenants (CRM) :</strong> Suivi centralisé des inscriptions, des prospects et des statuts d'avancement.</li>
+                <li><strong>Paiements en ligne :</strong> Intégration de l'API FedaPay pour valider les paiements et débloquer automatiquement les modules de cours.</li>
+                <li><strong>Évaluations :</strong> Système de quiz intégrés avec calcul des scores et seuils de validation.</li>
+                <li><strong>Certifications :</strong> Génération automatisée d'attestations PDF personnalisées dès la réussite du module.</li>
+            </ul>
+        """,
+        'drive_id': '1DJOm8d1pvXFDUNZU14B6mpeWx_N40Jip', 
+        'image_cover': 'msga_cms.jpg',  
+        'tags': ['Web App', 'FedaPay API', 'CRM', 'LMS', 'Génération PDF'],
         'color': 'purple'
     }
 }
-
 # --- ROUTES ---
 @app.route('/')
 def index():
