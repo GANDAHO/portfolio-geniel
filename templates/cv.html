@@ -173,6 +173,32 @@
 </head>
 <body>
 
+    <nav class="fixed top-0 w-full bg-white/95 backdrop-blur-md shadow-sm z-50 text-gray-800 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="font-extrabold text-2xl tracking-tighter text-corp-blue">G. GANDAHO</a>
+            
+            <div class="hidden md:flex space-x-6 font-medium text-sm uppercase tracking-wider items-center">
+                <a href="#about" class="hover:text-corp-accent transition">À propos</a>
+                <a href="#experience" class="hover:text-corp-accent transition">Expérience</a>
+                <a href="#projets" class="hover:text-corp-accent transition">Projets</a>
+                <a href="#skills" class="hover:text-corp-accent transition">Compétences</a>
+                <a href="#contact" class="bg-corp-accent text-white hover:bg-corp-blue transition px-4 py-1.5 rounded-full text-xs">Me Contacter</a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-corp-blue text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-gray-200 shadow-lg flex flex-col px-6 py-4 space-y-4 font-medium text-sm uppercase tracking-wider">
+            <a href="#about" class="hover:text-corp-accent">À propos</a>
+            <a href="#experience" class="hover:text-corp-accent">Expérience</a>
+            <a href="#projets" class="hover:text-corp-accent">Projets</a>
+            <a href="#skills" class="hover:text-corp-accent">Compétences</a>
+            <a href="#contact" class="text-corp-accent font-bold">Me Contacter</a>
+        </div>
+    </nav>
+
     <div class="action-bar" style="display: flex; justify-content: center; gap: 20px; margin-bottom: 30px;">
         <a href="{{ url_for('index') }}" style="background-color: #ecf0f1; color: #2c3e50; border: 1px solid #bdc3c7; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 8px; text-decoration: none; transition: 0.3s;">
             <i class="fa-solid fa-arrow-left"></i> Retour au portfolio
