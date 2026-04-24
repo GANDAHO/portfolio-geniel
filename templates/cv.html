@@ -51,127 +51,53 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: 0.3s;
         }
-        button:hover {
-            background-color: #1a252f;
-        }
+        button:hover { background-color: #1a252f; }
 
+        /* --- VUE ÉCRAN --- */
         .cv-page {
             width: 100%;
             max-width: 210mm;
             min-height: 297mm;
             background: white;
-            padding: 5vw;
+            padding: 15mm 20mm;
             box-sizing: border-box;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
             color: #333;
             margin-bottom: 30px;
         }
         
-        .header {
-            text-align: left;
-            margin-bottom: 20px;
-            border-bottom: 3px solid #e67e22;
-            padding-bottom: 15px;
-        }
-        .header h1 {
-            margin: 0;
-            color: #2c3e50;
-            font-size: 32px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .header .title {
-            color: #e67e22;
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 5px;
-            margin-bottom: 10px;
-        }
-        .header .contact {
-            font-size: 13px;
-            color: #7f8c8d;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
+        .header { text-align: left; margin-bottom: 20px; border-bottom: 3px solid #e67e22; padding-bottom: 15px; }
+        .header h1 { margin: 0; color: #2c3e50; font-size: 32px; letter-spacing: 1px; text-transform: uppercase; }
+        .header .title { color: #e67e22; font-size: 20px; font-weight: bold; margin-top: 5px; margin-bottom: 10px; }
+        .header .contact { font-size: 13px; color: #7f8c8d; display: flex; gap: 15px; flex-wrap: wrap; }
 
         .section-title {
-            color: #2c3e50;
-            border-bottom: 1px solid #bdc3c7;
-            padding-bottom: 5px;
-            font-size: 18px;
-            text-transform: uppercase;
-            font-weight: bold;
-            margin-top: 20px;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
+            color: #2c3e50; border-bottom: 1px solid #bdc3c7; padding-bottom: 5px;
+            font-size: 18px; text-transform: uppercase; font-weight: bold;
+            margin-top: 20px; margin-bottom: 15px; letter-spacing: 0.5px;
         }
-        .content {
-            font-size: 13.5px;
-            line-height: 1.6;
-            text-align: justify;
-        }
+        .content { font-size: 13.5px; line-height: 1.6; text-align: justify; }
         
-        .item {
-            margin-bottom: 18px;
-        }
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 2px;
-            flex-wrap: wrap;
-        }
-        .item-title {
-            font-weight: bold;
-            color: #2c3e50;
-            font-size: 15px;
-        }
-        .item-date {
-            color: #e67e22;
-            font-weight: bold;
-            font-size: 13px;
-            white-space: nowrap;
-        }
-        .item-company {
-            font-style: italic;
-            color: #7f8c8d;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-        .item ul {
-            margin-top: 0;
-            margin-bottom: 0;
-            padding-left: 18px;
-        }
-        .item li {
-            margin-bottom: 5px;
-        }
+        .item { margin-bottom: 18px; }
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2px; flex-wrap: wrap; }
+        .item-title { font-weight: bold; color: #2c3e50; font-size: 15px; }
+        .item-date { color: #e67e22; font-weight: bold; font-size: 13px; white-space: nowrap; }
+        .item-company { font-style: italic; color: #7f8c8d; font-size: 14px; margin-bottom: 8px; }
+        .item ul { margin-top: 0; margin-bottom: 0; padding-left: 18px; }
+        .item li { margin-bottom: 5px; }
 
-        .grid-2-col {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        .grid-2-col h3 {
-            color: #2c3e50;
-            font-size: 15px;
-            margin-top: 0;
-            margin-bottom: 8px;
-            border-bottom: 1px dashed #bdc3c7;
-            padding-bottom: 3px;
-        }
+        .grid-2-col { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .grid-2-col h3 { color: #2c3e50; font-size: 15px; margin-top: 0; margin-bottom: 8px; border-bottom: 1px dashed #bdc3c7; padding-bottom: 3px; }
 
         @media (min-width: 768px) {
-            .cv-page { padding: 15mm 20mm; }
             .grid-2-col { grid-template-columns: 1fr 1fr; }
         }
 
-        /* --- STYLES MAGIQUES POUR L'IMPRESSION PDF --- */
+        /* --- STYLES MAGIQUES POUR L'IMPRESSION PDF (ULTRA-COMPACT) --- */
         @media print {
             @page {
                 size: A4 portrait;
-                margin: 0 !important;
+                margin: 0 !important; /* Aucune marge navigateur */
             }
             body { 
                 background-color: white !important; 
@@ -180,36 +106,40 @@
                 -webkit-print-color-adjust: exact !important; 
                 print-color-adjust: exact !important; 
             }
-            .action-bar, nav { 
-                display: none !important; 
-            }
+            .action-bar, nav { display: none !important; }
+            
             .cv-page {
                 width: 210mm !important;
-                height: 296mm !important;
+                height: 297mm !important;
                 max-width: 210mm !important;
                 box-sizing: border-box !important;
-                padding: 15mm 20mm !important;
-                margin: 0 auto !important;
+                padding: 10mm 15mm !important; /* Marges réduites pour gagner de l'espace */
+                margin: 0 !important;
                 box-shadow: none !important;
                 page-break-after: always !important;
                 page-break-inside: avoid !important;
                 overflow: hidden !important;
             }
-            .cv-page:last-child { 
-                page-break-after: auto !important; 
-            }
+            .cv-page:last-child { page-break-after: auto !important; }
             
-            .header { margin-bottom: 12px !important; padding-bottom: 8px !important; }
-            .header h1 { font-size: 26px !important; } 
-            .header .title { font-size: 18px !important; margin-bottom: 5px !important; }
-            .section-title { font-size: 16px !important; margin-top: 15px !important; margin-bottom: 10px !important; }
-            .content { font-size: 12px !important; line-height: 1.4 !important; }
+            /* Réduction drastique des espacements et des polices */
+            .header { margin-bottom: 10px !important; padding-bottom: 5px !important; }
+            .header h1 { font-size: 24px !important; } 
+            .header .title { font-size: 15px !important; margin-bottom: 4px !important; }
+            .header .contact { font-size: 11px !important; }
+            
+            .section-title { font-size: 14px !important; margin-top: 10px !important; margin-bottom: 8px !important; padding-bottom: 2px !important; }
+            .content { font-size: 11px !important; line-height: 1.35 !important; }
+            
             .item { margin-bottom: 10px !important; }
-            .item-title { font-size: 14px !important; }
-            .item-company { font-size: 13px !important; margin-bottom: 4px !important; }
+            .item-title { font-size: 12.5px !important; }
+            .item-company { font-size: 11.5px !important; margin-bottom: 3px !important; }
+            .item-date { font-size: 11px !important; }
+            .item ul { padding-left: 14px !important; }
+            .item li { margin-bottom: 2px !important; }
+
             .grid-2-col { grid-template-columns: 1fr 1fr !important; gap: 15px !important; }
-            .grid-2-col h3 { font-size: 14px !important; margin-bottom: 5px !important; }
-            .item ul { padding-left: 15px !important; }
+            .grid-2-col h3 { font-size: 13px !important; margin-bottom: 4px !important; }
         }
     </style>
 </head>
@@ -251,7 +181,6 @@
     </div>
 
     <div class="cv-page">
-        
         <div class="header">
             <h1>Géniel Immaculé M. GANDAHO</h1>
             <div class="title">Data Analyst & M&E Officer | Expert en Digitalisation Frugale</div>
@@ -290,14 +219,10 @@
                 </div>
                 <div class="item-company">Portfolio: <a href="https://gandaho.github.io/el-shaddai-vitrine" class="text-corp-accent underline">Showcase Portfolio</a></div>
                 <ul>
-                    <li><strong>School Management ERP (El-Shaddai):</strong> Developed an end-to-end management suite (Academic, Financial, & Accounting) including automated monthly/annual reports and historical data predictions. 
-                        <a href="https://el-shaddai-app.onrender.com/" class="text-corp-accent">[Live App]</a></li>
-                    <li><strong>PDC Digitalization Suite:</strong> Architected a collaborative "PDC Builder" replacing Excel-based workflows for Communal Development Plans, enabling real-time data collection for teams of 4-5 experts. 
-                        <a href="https://ms-ga-pdc-builder.onrender.com/" class="text-corp-accent">[Live App]</a></li>
-                    <li><strong>MS-GA Consulting Platform:</strong> Built an automated CRM/LMS for consulting services, featuring integrated training offers, automated enrollment emails, and payment tracking. 
-                        <a href="https://ms-ga-platform.onrender.com/" class="text-corp-accent">[Live App]</a></li>
-                    <li><strong>PCRSS Knowledge Management (KMP):</strong> Designed a specialized KM platform for the "Projet de Relèvement et de Stabilisation du Sahel" to centralize institutional knowledge. 
-                        <a href="https://kmppcrssniger.onrender.com/" class="text-corp-accent">[Live App]</a></li>
+                    <li><strong>School Management ERP (El-Shaddai):</strong> Developed an end-to-end management suite (Academic, Financial, & Accounting) including automated monthly/annual reports and historical data predictions.</li>
+                    <li><strong>PDC Digitalization Suite:</strong> Architected a collaborative "PDC Builder" replacing Excel-based workflows for Communal Development Plans, enabling real-time data collection for teams of experts.</li>
+                    <li><strong>MS-GA Consulting Platform:</strong> Built an automated CRM/LMS for consulting services, featuring integrated training offers, automated enrollment emails, and payment tracking.</li>
+                    <li><strong>PCRSS Knowledge Management (KMP):</strong> Designed a specialized KM platform for the "Projet de Relèvement et de Stabilisation du Sahel" to centralize institutional knowledge.</li>
                 </ul>
             </div>
 
@@ -328,17 +253,17 @@
 
         <div class="grid-2-col">
             <div>
-                <div class="section-title" style="margin-top: 10px;">Compétences Techniques</div>
+                <div class="section-title">Compétences Techniques</div>
                 <div class="content">
                     <h3>Analyse & Gestion des données</h3>
-                    <ul style="margin-bottom: 10px;">
+                    <ul>
                         <li><strong>Excel Avancé (Power Query, Power Pivot)</strong></li>
                         <li>Python (Pandas), SQL (PostgreSQL)</li>
                         <li>Nettoyage, réconciliation et structuration</li>
                     </ul>
 
                     <h3>Suivi-Évaluation (M&E)</h3>
-                    <ul style="margin-bottom: 10px;">
+                    <ul>
                         <li>Enquêtes terrain & XLSForm (KoboToolbox)</li>
                         <li>Conception d’indicateurs (KPI)</li>
                         <li>Évaluations SxS</li>
@@ -353,37 +278,35 @@
             </div>
 
             <div>
-                <div class="section-title" style="margin-top: 10px;">Formation & Langues</div>
+                <div class="section-title">Formation & Langues</div>
                 <div class="content">
-                    <div class="item" style="margin-bottom: 10px;">
-                        <div class="item-title" style="font-size: 13.5px;">Césure Technique & Projets Professionnels</div>
-                        <div class="item-company" style="font-size: 12.5px; margin-bottom: 0;">2025 - 2026</div>
-                        <div style="font-size: 12px; color: #555; margin-top: 3px;">Focus : Maîtrise des outils de digitalisation frugale (Python, Power Query) en amont du Master SILPD (Spécialisation SEMP).</div>
+                    <div class="item">
+                        <div class="item-title">Césure Technique & Projets Professionnels</div>
+                        <div class="item-company">2025 - 2026</div>
+                        <div>Focus : Maîtrise des outils de digitalisation frugale (Python, Power Query) en amont du Master SILPD (Spécialisation SEMP).</div>
                     </div>
                     
-                    <div class="item" style="margin-bottom: 10px;">
-                        <div class="item-title" style="font-size: 13.5px;">Licence en Planification & Suivi-Évaluation</div>
-                        <div class="item-company" style="font-size: 12.5px; margin-bottom: 0;">Ecole Nationale de Statistique, de Planification et de Démographie (ENSPD) / Université de Parakou | 2022 - 2025</div>
+                    <div class="item">
+                        <div class="item-title">Licence en Planification & Suivi-Évaluation</div>
+                        <div class="item-company">ENSPD / Université de Parakou | 2022 - 2025</div>
                     </div>
                     
-                    <div class="item" style="margin-bottom: 15px;">
-                        <div class="item-title" style="font-size: 13.5px;">Licence en Didactique de l'Anglais (Attestation obtenue)</div>
-                        <div class="item-company" style="font-size: 12.5px;">Faculté des lettres arts et science humaines (fLASH / Université de Parakou) | 2021 - 2024</div>
+                    <div class="item">
+                        <div class="item-title">Licence en Didactique de l'Anglais</div>
+                        <div class="item-company">FLASH / Université de Parakou | 2021 - 2024</div>
                     </div>
 
                     <h3>Langues</h3>
-                    <ul style="margin-bottom: 0;">
-                        <li><strong>Anglais :</strong> Compétence professionnelle complète (Rédaction analytique)</li>
+                    <ul>
+                        <li><strong>Anglais :</strong> Compétence professionnelle complète</li>
                         <li><strong>Français :</strong> Langue maternelle</li>
                     </ul>
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="cv-page">
-        
         <div class="header">
             <h1>Géniel Immaculé M. GANDAHO</h1>
             <div class="title">Data Analyst & M&E Officer | Frugal Digitalization Expert</div>
@@ -417,19 +340,15 @@
 
             <div class="item">
                 <div class="item-header">
-                    <div class="item-title">Projets Indépendants : Architectures de Données Full-Stack</div>
-                    <div class="item-date">2024 – Présent</div>
+                    <div class="item-title">Independent Projects: Full-Stack Data Architectures</div>
+                    <div class="item-date">2024 – Present</div>
                 </div>
-                <div class="item-company">Portfolio : <a href="https://gandaho.github.io/el-shaddai-vitrine" class="text-corp-accent underline">Vitrine Portfolio</a></div>
+                <div class="item-company">Portfolio: <a href="https://gandaho.github.io/el-shaddai-vitrine" class="text-corp-accent underline">Showcase Portfolio</a></div>
                 <ul>
-                    <li><strong>ERP de Gestion Scolaire (El-Shaddai) :</strong> Développement d'une suite de gestion complète (Académique, Financière & Comptable) incluant rapports automatisés et prédictions sur données historiques. 
-                        <a href="https://el-shaddai-app.onrender.com/" class="text-corp-accent">[Lien App]</a></li>
-                    <li><strong>PDC Builder (Digitalisation Institutionnelle) :</strong> Conception d'une usine à données collaborative pour les Plans de Développement Communaux, remplaçant les fichiers Excel par un processus digitalisé pour experts. 
-                        <a href="https://ms-ga-pdc-builder.onrender.com/" class="text-corp-accent">[Lien App]</a></li>
-                    <li><strong>Plateforme CRM MS-GA :</strong> Création d'un système automatisé pour cabinet de conseil (offres de formation intégrées, inscriptions automatisées et suivi rigoureux des paiements). 
-                        <a href="https://ms-ga-platform.onrender.com/" class="text-corp-accent">[Lien App]</a></li>
-                    <li><strong>KMP PCRSS (Gestion des Connaissances) :</strong> Architecture d'une plateforme de Knowledge Management dédiée au Projet de Relèvement et de Stabilisation du Sahel (PCRSS). 
-                        <a href="https://kmppcrssniger.onrender.com/" class="text-corp-accent">[Lien App]</a></li>
+                    <li><strong>School Management ERP (El-Shaddai):</strong> Developed an end-to-end management suite (Academic, Financial, & Accounting) including automated monthly/annual reports and historical data predictions.</li>
+                    <li><strong>PDC Digitalization Suite:</strong> Architected a collaborative "PDC Builder" replacing Excel-based workflows for Communal Development Plans, enabling real-time data collection for teams of experts.</li>
+                    <li><strong>MS-GA Consulting Platform:</strong> Built an automated CRM/LMS for consulting services, featuring integrated training offers, automated enrollment emails, and payment tracking.</li>
+                    <li><strong>PCRSS Knowledge Management (KMP):</strong> Designed a specialized KM platform for the "Projet de Relèvement et de Stabilisation du Sahel" to centralize institutional knowledge.</li>
                 </ul>
             </div>
 
@@ -460,17 +379,17 @@
 
         <div class="grid-2-col">
             <div>
-                <div class="section-title" style="margin-top: 10px;">Core Competencies</div>
+                <div class="section-title">Core Competencies</div>
                 <div class="content">
                     <h3>Data Analysis & Management</h3>
-                    <ul style="margin-bottom: 10px;">
+                    <ul>
                         <li><strong>Advanced Excel (Power Query, Power Pivot)</strong></li>
                         <li>Python (Pandas), SQL (PostgreSQL)</li>
                         <li>Data Cleaning, Reconciliation & Structuring</li>
                     </ul>
 
                     <h3>Monitoring & Evaluation (M&E)</h3>
-                    <ul style="margin-bottom: 10px;">
+                    <ul>
                         <li>Field Surveys & XLSForm (KoboToolbox)</li>
                         <li>Key Performance Indicators (KPI) Design</li>
                         <li>SxS Evaluations</li>
@@ -485,27 +404,27 @@
             </div>
 
             <div>
-                <div class="section-title" style="margin-top: 10px;">Education & Languages</div>
+                <div class="section-title">Education & Languages</div>
                 <div class="content">
-                    <div class="item" style="margin-bottom: 10px;">
-                        <div class="item-title" style="font-size: 13.5px;">Technical Gap Year & Professional Projects</div>
-                        <div class="item-company" style="font-size: 12.5px; margin-bottom: 0;">2025 - 2026</div>
-                        <div style="font-size: 12px; color: #555; margin-top: 3px;">Focus: Mastery of frugal digitalization tools (Python, Power Query) ahead of enrolling in the Master’s program for Local Information Systems and Development Planning.</div>
+                    <div class="item">
+                        <div class="item-title">Technical Gap Year & Professional Projects</div>
+                        <div class="item-company">2025 - 2026</div>
+                        <div>Focus: Mastery of frugal digitalization tools (Python, Power Query) ahead of enrolling in the Master’s program for Local Information Systems and Development Planning.</div>
                     </div>
                     
-                    <div class="item" style="margin-bottom: 10px;">
-                        <div class="item-title" style="font-size: 13.5px;">Bachelor in Development Planning & Monitoring-Evaluation</div>
-                        <div class="item-company" style="font-size: 12.5px; margin-bottom: 0;">National School of Statistics, Planning and Demography (ENSPD) / Université de Parakou | 2022 - 2025</div>
+                    <div class="item">
+                        <div class="item-title">Bachelor in Dev. Planning & Monitoring-Evaluation</div>
+                        <div class="item-company">ENSPD / Université de Parakou | 2022 - 2025</div>
                     </div>
                     
-                    <div class="item" style="margin-bottom: 15px;">
-                        <div class="item-title" style="font-size: 13.5px;">Bachelor in English Didactics (Attestation obtained)</div>
-                        <div class="item-company" style="font-size: 12.5px;">faculty of Letters, Arts and Sciences (fLASH / Université de Parakou)| 2021 - 2024</div>
+                    <div class="item">
+                        <div class="item-title">Bachelor in English Didactics</div>
+                        <div class="item-company">FLASH / Université de Parakou | 2021 - 2024</div>
                     </div>
 
                     <h3>Languages</h3>
-                    <ul style="margin-bottom: 0;">
-                        <li><strong>English:</strong> Full Professional Proficiency (Analytical writing)</li>
+                    <ul>
+                        <li><strong>English:</strong> Full Professional Proficiency</li>
                         <li><strong>French:</strong> Native</li>
                     </ul>
                 </div>
